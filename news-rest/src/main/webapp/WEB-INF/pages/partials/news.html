@@ -1,0 +1,15 @@
+<a ui-sref="newNews" class="btn-primary btn-lg nodecoration">Add New News</a>
+<table class="table movietable">
+    <tr>
+        <td><h3>All News</h3></td>
+        <td></td>
+    </tr>
+    <tr ng-repeat="news in newsList">
+        <td>{{news.title}}</td>
+        <td>
+            <a class="btn btn-primary" ui-sref="viewNews({id: news.id})">View</a>
+            <a class="btn btn-danger"  ng-click="deleteNews(news)">Delete</a>
+        </td>
+    </tr>
+</table>
+<pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages"></pagination>

@@ -1,0 +1,20 @@
+<a ui-sref="newAuthor" class="btn-primary btn-lg nodecoration">Add Author</a>
+<table class="table movietable">
+    <tr>
+        <td><h3>All Authors</h3></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>Expiration Date</td>
+        <td>Actions</td>
+    </tr>
+    <tr ng-repeat="author in authorList | orderBy:'id'">
+        <td>{{author.name}}</td>
+        <td><span ng-hide="author.expired == null">{{author.expired | date}}</span></td>
+        <td>
+            <a class="btn btn-primary" ui-sref="editAuthor({id:author.id})">Edit</a>
+            <a class="btn btn-danger" ng-show="author.expired == null"  ng-click="expireAuthor(author)">Expire</a>
+        </td>
+    </tr>
+</table>
